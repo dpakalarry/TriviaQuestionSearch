@@ -1,9 +1,10 @@
 // var site = " http://jservice.io/api/random?count=2";
-var site = " http://jservice.io/api/categories";
+var site = " http://jservice.io/api/categories/?count=100&offset=12200";
+// var site = " http://jservice.io/api/categories/?count=100";
 // var request = new XMLHttpRequest();
 // request.open("GET", site, true);
 var Json = getJSON(site)
-// console.log(Json)
+console.log(Json)
 
 
 
