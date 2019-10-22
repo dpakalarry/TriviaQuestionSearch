@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    THIS IS A TEST
+    <h6>Date Begin:  <input type= "date" name="dateMin" ></h6><br>
+    <h6>Date End: <input type= "date" name="dateMax"></h6><br>
+    <h6>Category ID: <input type="number" name="catID"></h6><br>
+    <h6>Value of Clue: <input type="number" name="val"></h6><br>
+        
+
+    <input type = "submit" value = "Submit" onclick=validateForm()>
+    <!-- </form> -->
+    <div id = "container"></div>
     <script src = query.js></script>
 </body>
+   
 </html>
