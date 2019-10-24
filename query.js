@@ -24,7 +24,7 @@ function getJSON(site){
 }
 
 
-function validateForm() {
+function validateForm(numRes = 100) {
     var curDate = new Date();
     var maxDate = document.getElementsByName("dateMax")[0].value;
     var minDate = document.getElementsByName("dateMin")[0].value;
