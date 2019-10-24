@@ -7,7 +7,7 @@ var site = " http://jservice.io/api/categories/?count=100";
 // console.log(Json)
 // console.log(Json)
 
-function parseJSON(promise){
+function parseJSON(promise, hAnswer = false){
     promise.then(response=>response.json())
     .then(data=> {
         // console.log(data);
@@ -25,17 +25,26 @@ function parseJSON(promise){
             
             var date = row.insertCell(0);
             var category = row.insertCell(1);
-            var quest = row.insertCell(2);
-            var answ = row.insertCell(3);
-            var save = row.insertCell(4);
+            var value = row.insertCell(2);
+            var quest = row.insertCell(3);
+            var answ = row.insertCell(4);
+            var save = row.insertCell(5);
 
             const actDate = new Date(data[q].airdate)
 
             date.innerHTML = "<h6>"+ actDate.toLocaleDateString() + "</h6>";
             category.innerHTML = "<h6>"+ data[q].category.title + "</h6>";
+            value.innerHTML = "<h6>"+ data[q].value + "</h6>";
             quest.innerHTML = "<h6>"+ data[q].question + "</h6>";
-            answ.innerHTML = "<h6>"+ data[q].answer + "</h6>";
             save.innerHTML = "<input type = \"checkbox\">";
+            
+            var answHtml = "<h6>"
+            for(var i = 0; i < data[q].answer.length; i++){
+                answHtml += "-";
+            }
+            console.log(answHtml);
+            // answ.innerHTML = "<h6>"+ data[q].answer + "</h6>";
+            answ.innerHTML = answHtml + "</h6>";
         }
     });
 }
@@ -63,18 +72,19 @@ function validateForm(numRes = 100) {
     console.log(price);
     console.log(cat);
 
-    if(maxDate != null && minDate != null && maxDate < minDate){
-        alert("Date End is before Date Begin! Please try again.")
+    if(maxDate == "" && minDate != ""){
+        alert("Date Begin needs to be paired with a Date End.")
         document.getElementsByName("dateMax")[0].focus();
         // document.search.dateMax.focus();
         return false;
-    } 
-    if(minDate != null && curDate < minDate){
-        alert("Date Begin is after today! Please try again.")
+    }
+    if(maxDate != "" && minDate == ""){
+        alert("Date Begin needs to be paired with a Date End.")
         document.getElementsByName("dateMin")[0].focus();
+        // document.search.dateMax.focus();
         return false;
-    } 
-    if(numRes != 100 && maxDate == "" && minDate == "" && price == "" && cat == ""){
+    }
+    if(numRes == 100 && maxDate == "" && minDate == "" && price == "" && cat == ""){
         alert("No fields were filled out");
         document.getElementsByName("dateMin")[0].focus();
         return false;
@@ -108,7 +118,7 @@ function validateForm(numRes = 100) {
 }
 
 
-window.addEventListener('keyup', function(event) {
+window.addEventListener('keydown', function(event) {
     if (event.keyCode === 13) {
       validateForm();
     }
