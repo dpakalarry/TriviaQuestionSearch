@@ -89,7 +89,8 @@ function validateForm(numRes = 100) {
         document.getElementsByName("dateMin")[0].focus();
         return false;
     }
-    var site = "http://jservice.io/api/"
+    //Need to funnel http through https proxy
+    var site = "https://cors-anywhere.herokuapp.com/http://jservice.io/api/"
     if(maxDate == "" && minDate == "" && price == "" && cat == ""){
         if(numRes == 100){
             alert("No fields were filled out");
