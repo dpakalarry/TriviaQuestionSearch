@@ -4,49 +4,38 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href = "navbar.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search for question</title>
+    <title>Trivia Question Search - Search</title>
 </head>
 <body>
     <ul>
-        <li><a href = "#Home">Home</a></li>
-        <li><a class = "active" href = "">Search</a></li>
-        <li><a href = "">Saved</a></li>
-        <li><a href = "">Stats</a></li>
+        <li><a href = "Home.html">Home</a></li>
+        <li><a class = "active" href = "search.html">Search</a></li>
     </ul>
     <br>
     <br>
     <br>
-    <!-- <h3><div class="alert alert-info"><b>Search for question</b></div></h3> -->
     <div class="container-fluid">
     <h6 >Date Begin:  <input type= "date" name="dateMin" ></h6> 
     <h6>Date End: <input type= "date" name="dateMax"></h6>
     <h6>Category ID: <input type="number" name="catID"></h6>
     <h6>Value of Clue: <input type="number" name="val"></h6>
-    <h6>Hide answer? <input type = "checkbox" value = "false"></h6>
-    <input type = "submit" value = "Submit" onclick=validateForm()> 
-    <input type = "submit" value = "I'm Feeling Lucky" onclick=validateForm(1)>
+    <h6>Hide answer? <input type = "checkbox" value = "false" id = "hAnswer"></h6>
+    <a href = "#" class = "btn btn-primary"  onclick=validateForm()> Submit </a>
+    <a href = "#" class = "btn btn-secondary"  onclick=validateForm(1)> I'm Feeling Lucky </a>
     </div>
     <br>
     <table class="table table-striped" name = "qRes">
         <tr>
         <td><h5>Air Date</h5></td>
         <td><h5>Category</h5></td>
+        <td><h5>Category ID</h5></td>
         <td><h5>Value</h5></td>
         <td><h5>Question</h5></td>
         <td><h5>Answer</h5></td>
-        <td><h5>Save?</h5></td>   
         </tr>
-        
-        <!-- <tr>
-        <td><h6 name = "date1" disabled> 5/7/19 </h6></td>
-        <td><h6 name = "cat1" disabled> Sports </h6></td>
-        <td><h6 name = "q1" disabled> What is basketball </h6></td>
-        <td><h6 name = "answ1" disabled> basketball </h6></td>
-        <td><input type = "checkbox" name = chk1></td>
-        </tr> -->
         
     </table>
 

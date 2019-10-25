@@ -37,3 +37,5 @@ li a:hover:not(.active){
 .active{
 	background-color: orange;
 }
+
+/* All of the above is to make the navigation bar look nice */
